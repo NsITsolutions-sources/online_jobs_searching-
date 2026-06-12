@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UniJobs — Find Student-Friendly Jobs & Internships</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+    <!-- =============================================
+         NAVIGATION BAR (consistent across all pages)
+         ============================================= -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">Uni<span>Jobs</span></a>
+
+            <!-- Nav Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="jobs.html">Browse Jobs</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
+            </ul>
+
+            <!-- Mobile hamburger -->
+            <div class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <!-- =============================================
+         HERO SECTION
+         ============================================= -->
+    <section class="hero">
+        <div class="container">
+
+            <!-- Left: headline + search -->
+            <div class="hero-text">
+                <h1>
+                    Land Your First <span class="highlight">Dream Job</span>
+                    or Internship
+                </h1>
+                <p>
+                    UniJobs connects university students and fresh graduates with
+                    top internships, part-time gigs, and entry-level roles from
+                    companies that actually want to invest in your growth.
+                </p>
+
+                <!-- Quick Search Bar -->
+                <div class="search-bar">
+                    <input type="text" id="heroSearch" placeholder="Search job title, skill, or company..." />
+                    <button class="btn btn-primary" onclick="handleHeroSearch()">Search Jobs</button>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hero-actions">
+                    <a href="jobs.html" class="btn btn-accent">Browse All Jobs</a>
+                    <a href="about.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.5);">How It Works</a>
+                </div>
+
+                <!-- Quick stats -->
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>1,200+</strong>
+                        <span>Active Jobs</span>
+                    </div>
+                    <div class="stat">
+                        <strong>380+</strong>
+                        <span>Partner Companies</span>
+                    </div>
+                    <div class="stat">
+                        <strong>8,500+</strong>
+                        <span>Students Placed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: hero image -->
+            <div class="hero-image-wrap">
+                <!--
+                    IMAGE PLACEHOLDER: hero-student.jpg
+                    Suggested: A university student sitting at a laptop, smiling,
+                    in a modern campus or co-working space.
+                    Size: 920x700px
+                -->
+                <img src="images/hero-student.jpg"
+                     alt="University student searching for jobs on laptop" />
+            </div>
+
+        </div>
+    </section>
+    <!-- END HERO -->
+
+    <!-- =============================================
+         JOB CATEGORIES SECTION
+         ============================================= -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Explore by Category</h2>
+            <p class="section-sub">
+                Find roles that fit your schedule, skills, and career goals.
+            </p>
+
+            <div class="categories-grid">
+                <!-- Category cards -->
+                <div class="cat-card" onclick="window.location='jobs.html?cat=internship'">
+                    <div class="cat-icon">🎓</div>
+                    <h3>Internships</h3>
+                    <p>320 open roles</p>
+                </div>
+
+                <div class="cat-card" onclick="window.location='jobs.html?cat=parttime'">
+                    <div class="cat-icon">⏱️</div>
+                    <h3>Part-Time</h3>
+                    <p>510 open roles</p>
+                </div>
+
+                <div class="cat-card" onclick="window.location='jobs.html?cat=graduate'">
+                    <div class="cat-icon">🚀</div>
+                    <h3>Graduate Roles</h3>
+                    <p>215 open roles</p>
+                </div>
+
+                <div class="cat-card" onclick="window.location='jobs.html?cat=remote'">
+                    <div class="cat-icon">💻</div>
+                    <h3>Remote / WFH</h3>
+                    <p>420 open roles</p>
+                </div>
+
+                <div class="cat-card" onclick="window.location='jobs.html?cat=tech'">
+                    <div class="cat-icon">🖥️</div>
+                    <h3>Technology</h3>
+                    <p>280 open roles</p>
+                </div>
+
+                <div class="cat-card" onclick="window.location='jobs.html?cat=design'">
+                    <div class="cat-icon">🎨</div>
+                    <h3>Design & Creative</h3>
+                    <p>145 open roles</p>
+                </div>
+
+                <div class="cat-card" onclick="window.location='jobs.html?cat=marketing'">
+                    <div class="cat-icon">📣</div>
+                    <h3>Marketing</h3>
+                    <p>190 open roles</p>
+                </div>
+
+                <div class="cat-card" onclick="window.location='jobs.html?cat=business'">
+                    <div class="cat-icon">📊</div>
+                    <h3>Business & Finance</h3>
+                    <p>175 open roles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END CATEGORIES -->
+
+    <!-- =============================================
+         FEATURED JOBS (jQuery fade-in on scroll)
+         ============================================= -->
+    <section class="section" style="background: #f8fafc; padding-top: 70px; padding-bottom: 80px;">
+        <div class="container">
+            <h2 class="section-title">Featured Jobs for Students</h2>
+            <p class="section-sub">
+                Hand-picked opportunities updated daily — tailored for your stage of study.
+            </p>
+
+            <div class="jobs-grid" id="featuredJobs">
+
+                <!-- Job Card 1 -->
+                <div class="job-card">
+                    <div class="job-card-header">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-techwave.png
+                                Company logo for TechWave Solutions, 96x96px
+                            -->
+                            <img src="images/logo-techwave.png" alt="TechWave Solutions logo" />
+                        </div>
+                        <div class="job-card-header-info">
+                            <h3>Frontend Developer Intern</h3>
+                            <span>TechWave Solutions</span>
+                        </div>
+                    </div>
+                    <div class="job-card-meta">
+                        <span class="tag tag-blue">Internship</span>
+                        <span class="tag tag-green">Remote</span>
+                        <span class="tag tag-purple">React</span>
+                    </div>
+                    <p class="job-desc">
+                        Join our engineering team to build responsive web interfaces.
+                        Ideal for CS or IT students in their 2nd or 3rd year. Flexible hours.
+                    </p>
+                    <div class="job-card-footer">
+                        <span class="salary">LKR 35,000/mo</span>
+                        <span class="posted">Posted 2 days ago</span>
+                    </div>
+                    <a href="apply.html" class="btn btn-primary" style="width:100%;text-align:center;">Apply Now</a>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="job-card">
+                    <div class="job-card-header">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-greenleaf.png
+                                Company logo for GreenLeaf Marketing, 96x96px
+                            -->
+                            <img src="images/logo-greenleaf.png" alt="GreenLeaf Marketing logo" />
+                        </div>
+                        <div class="job-card-header-info">
+                            <h3>Social Media Assistant</h3>
+                            <span>GreenLeaf Marketing</span>
+                        </div>
+                    </div>
+                    <div class="job-card-meta">
+                        <span class="tag tag-orange">Part-Time</span>
+                        <span class="tag tag-green">Hybrid</span>
+                    </div>
+                    <p class="job-desc">
+                        Help manage Instagram, Facebook, and LinkedIn accounts for our
+                        clients. Great for students studying Marketing, Media, or Communications.
+                    </p>
+                    <div class="job-card-footer">
+                        <span class="salary">LKR 1,200/hr</span>
+                        <span class="posted">Posted 1 day ago</span>
+                    </div>
+                    <a href="apply.html" class="btn btn-primary" style="width:100%;text-align:center;">Apply Now</a>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="job-card">
+                    <div class="job-card-header">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-nexabank.png
+                                Company logo for NexaBank, 96x96px
+                            -->
+                            <img src="images/logo-nexabank.png" alt="NexaBank logo" />
+                        </div>
+                        <div class="job-card-header-info">
+                            <h3>Graduate Analyst – Finance</h3>
+                            <span>NexaBank</span>
+                        </div>
+                    </div>
+                    <div class="job-card-meta">
+                        <span class="tag tag-purple">Graduate</span>
+                        <span class="tag tag-blue">On-site</span>
+                    </div>
+                    <p class="job-desc">
+                        A structured 12-month graduate programme in financial analysis
+                        and risk modeling. Open to all business and finance graduates from 2024/25.
+                    </p>
+                    <div class="job-card-footer">
+                        <span class="salary">LKR 85,000/mo</span>
+                        <span class="posted">Posted 3 days ago</span>
+                    </div>
+                    <a href="apply.html" class="btn btn-primary" style="width:100%;text-align:center;">Apply Now</a>
+                </div>
+
+            </div><!-- END .jobs-grid -->
+
+            <div style="text-align:center; margin-top: 40px;">
+                <a href="jobs.html" class="btn btn-outline">View All 1,200+ Jobs →</a>
+            </div>
+        </div>
+    </section>
+    <!-- END FEATURED JOBS -->
+
+    <!-- =============================================
+         HOW IT WORKS
+         ============================================= -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">How UniJobs Works</h2>
+            <p class="section-sub">Four simple steps from signup to offer letter.</p>
+
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="step-num">1</div>
+                    <h3>Create a Profile</h3>
+                    <p>Sign up, fill in your degree, skills, and availability so companies can find you.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">2</div>
+                    <h3>Browse & Filter</h3>
+                    <p>Use our smart filters to find jobs by type, location, pay, and required skills.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">3</div>
+                    <h3>Apply in Minutes</h3>
+                    <p>Submit your details and CV through our easy one-page application form.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">4</div>
+                    <h3>Get Hired</h3>
+                    <p>Hear back directly from employers and land a role that kick-starts your career.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END HOW IT WORKS -->
+
+    <!-- =============================================
+         LATEST UPDATES (Dynamic date with JS Date)
+         ============================================= -->
+    <section class="section updates-section">
+        <div class="container">
+            <h2 class="section-title">Latest Updates</h2>
+            <p class="section-sub" id="todayLabel">Loading today's updates...</p>
+
+            <div class="updates-grid">
+
+                <div class="update-card">
+                    <h4>🏢 New Partner: Infinity Labs joins UniJobs</h4>
+                    <p>
+                        Infinity Labs, a leading AI startup, has partnered with us to
+                        offer 25 funded internship positions exclusively for our registered students.
+                    </p>
+                    <div class="update-date">
+                        📅 <span class="dynamic-date"></span>
+                    </div>
+                </div>
+
+                <div class="update-card">
+                    <h4>📢 Deadline Extended: NexaBank Graduate Programme</h4>
+                    <p>
+                        The application deadline for the NexaBank 2025 Graduate Analyst
+                        programme has been extended by two weeks. Don't miss this chance!
+                    </p>
+                    <div class="update-date">
+                        📅 <span class="dynamic-date"></span>
+                    </div>
+                </div>
+
+                <div class="update-card">
+                    <h4>💡 New Resource: Resume Writing Workshop Recording</h4>
+                    <p>
+                        Missed our live workshop? The full recording is now available in
+                        the Career Resources section — covering templates, ATS tips, and more.
+                    </p>
+                    <div class="update-date">
+                        📅 <span class="dynamic-date"></span>
+                    </div>
+                </div>
+
+                <div class="update-card">
+                    <h4>🚀 500 New Jobs Added This Week</h4>
+                    <p>
+                        We've added over 500 fresh listings this week across technology,
+                        marketing, finance, and creative sectors. Use the filter to explore.
+                    </p>
+                    <div class="update-date">
+                        📅 <span class="dynamic-date"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- END LATEST UPDATES -->
+
+    <!-- =============================================
+         FOOTER (consistent across all pages)
+         ============================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Brand column -->
+                <div class="footer-brand">
+                    <div class="logo">Uni<span>Jobs</span></div>
+                    <p>
+                        The job platform built by students, for students.
+                        We bridge the gap between university talent and
+                        forward-thinking employers across Sri Lanka.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">Browse Jobs</a></li>
+                        <li><a href="apply.html">Apply Now</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Job Types -->
+                <div class="footer-col">
+                    <h4>Job Types</h4>
+                    <ul>
+                        <li><a href="jobs.html">Internships</a></li>
+                        <li><a href="jobs.html">Part-Time</a></li>
+                        <li><a href="jobs.html">Graduate Roles</a></li>
+                        <li><a href="jobs.html">Remote Jobs</a></li>
+                        <li><a href="jobs.html">On-Campus</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@unijobs.lk">hello@unijobs.lk</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+
+            </div><!-- END .footer-grid -->
+
+            <div class="footer-bottom">
+                <span>© 2025 UniJobs. Built for CSCI 12562 Group Project.</span>
+                <span>Today: <span id="footer-date">Loading...</span></span>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/date.js"></script>
+
+</body>
+</html>

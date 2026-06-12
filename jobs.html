@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse Jobs — UniJobs</title>
+    <link rel="stylesheet" href="css/jobs.css" />
+    <link rel="stylesheet" href="css/global.css" />
+</head>
+<body>
+
+    <!-- =============================================
+         NAVIGATION BAR
+         ============================================= -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Uni<span>Jobs</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html" class="active">Browse Jobs</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =============================================
+         PAGE HERO
+         ============================================= -->
+    <div class="page-hero">
+        <div class="container">
+            <h1>Browse Student Jobs</h1>
+            <p>Internships, part-time roles, and graduate positions updated daily.</p>
+        </div>
+    </div>
+
+    <!-- =============================================
+         FILTER BAR (jQuery powered)
+         ============================================= -->
+    <div class="filter-bar">
+        <div class="container">
+            <div class="filter-inner">
+                <span style="font-size:.88rem;font-weight:600;color:#475569;margin-right:4px;">Filter:</span>
+                <button class="filter-btn active" data-filter="all">All Jobs</button>
+                <button class="filter-btn" data-filter="internship">Internships</button>
+                <button class="filter-btn" data-filter="parttime">Part-Time</button>
+                <button class="filter-btn" data-filter="graduate">Graduate</button>
+                <button class="filter-btn" data-filter="remote">Remote</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="jobs-layout">
+
+            <!-- SIDEBAR FILTERS -->
+            <aside class="sidebar">
+
+                <!-- Location Filter -->
+                <div class="sidebar-box">
+                    <h4>📍 Location</h4>
+                    <label><input type="checkbox" checked /> Colombo</label>
+                    <label><input type="checkbox" /> Kandy</label>
+                    <label><input type="checkbox" /> Galle</label>
+                    <label><input type="checkbox" checked /> Remote / WFH</label>
+                    <label><input type="checkbox" /> Hybrid</label>
+                </div>
+
+                <!-- Job Type -->
+                <div class="sidebar-box">
+                    <h4>💼 Job Type</h4>
+                    <label><input type="checkbox" checked /> Internship</label>
+                    <label><input type="checkbox" checked /> Part-Time</label>
+                    <label><input type="checkbox" /> Graduate</label>
+                    <label><input type="checkbox" /> Contract</label>
+                </div>
+
+                <!-- Salary Range -->
+                <div class="sidebar-box">
+                    <h4>💰 Min. Monthly Pay (LKR)</h4>
+                    <input type="range" id="salaryRange" min="0" max="150000" step="5000" value="20000" />
+                    <div class="salary-display" id="salaryDisplay">LKR 20,000+</div>
+                </div>
+
+                <!-- Field -->
+                <div class="sidebar-box">
+                    <h4>🏷️ Field</h4>
+                    <label><input type="checkbox" checked /> Technology</label>
+                    <label><input type="checkbox" checked /> Marketing</label>
+                    <label><input type="checkbox" /> Finance</label>
+                    <label><input type="checkbox" /> Design</label>
+                    <label><input type="checkbox" /> Engineering</label>
+                    <label><input type="checkbox" /> Healthcare</label>
+                </div>
+
+            </aside>
+            <!-- END SIDEBAR -->
+
+            <!-- JOB LISTINGS -->
+            <div class="jobs-main">
+
+                <div class="jobs-list-header">
+                    <h3 id="jobCount">Showing 10 jobs</h3>
+                    <select id="sortJobs">
+                        <option value="recent">Most Recent</option>
+                        <option value="salary">Highest Pay</option>
+                        <option value="az">A–Z Company</option>
+                    </select>
+                </div>
+
+                <div class="jobs-list" id="jobsList">
+
+                    <!-- Job Row 1 -->
+                    <div class="job-row" data-type="internship">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-techwave.png
+                                TechWave Solutions logo, 104x104px
+                            -->
+                            <img src="images/logo-techwave.png" alt="TechWave" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>Frontend Developer Intern</h3>
+                            <div class="company-name">TechWave Solutions</div>
+                            <div class="job-row-meta">
+                                <span>🖥️ Remote</span>
+                                <span>⏱️ 3 months</span>
+                                <span>🎓 CS / IT Students</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-blue">Internship</span>
+                                <span class="tag tag-green" style="margin-left:6px;">Remote</span>
+                                <span class="tag tag-purple" style="margin-left:6px;">React</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 35,000/mo</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 2 -->
+                    <div class="job-row" data-type="parttime">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-greenleaf.png
+                                GreenLeaf Marketing logo, 104x104px
+                            -->
+                            <img src="images/logo-greenleaf.png" alt="GreenLeaf" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>Social Media Content Creator</h3>
+                            <div class="company-name">GreenLeaf Marketing</div>
+                            <div class="job-row-meta">
+                                <span>📍 Colombo 3</span>
+                                <span>⏱️ Ongoing</span>
+                                <span>🎓 Open to all majors</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-orange">Part-Time</span>
+                                <span class="tag tag-green" style="margin-left:6px;">Hybrid</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 1,200/hr</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 3 -->
+                    <div class="job-row" data-type="graduate">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-nexabank.png
+                                NexaBank logo, 104x104px
+                            -->
+                            <img src="images/logo-nexabank.png" alt="NexaBank" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>Graduate Analyst – Finance</h3>
+                            <div class="company-name">NexaBank</div>
+                            <div class="job-row-meta">
+                                <span>📍 Colombo 2</span>
+                                <span>⏱️ 12-month programme</span>
+                                <span>🎓 Finance / Business</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-purple">Graduate</span>
+                                <span class="tag tag-blue" style="margin-left:6px;">On-site</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 85,000/mo</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 4 -->
+                    <div class="job-row" data-type="internship remote">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-pixelcraft.png
+                                PixelCraft Studio logo, 104x104px
+                            -->
+                            <img src="images/logo-pixelcraft.png" alt="PixelCraft" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>UI/UX Design Intern</h3>
+                            <div class="company-name">PixelCraft Studio</div>
+                            <div class="job-row-meta">
+                                <span>🖥️ Remote</span>
+                                <span>⏱️ 6 months</span>
+                                <span>🎓 Design / Fine Arts</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-blue">Internship</span>
+                                <span class="tag tag-green" style="margin-left:6px;">Remote</span>
+                                <span class="tag tag-purple" style="margin-left:6px;">Figma</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 28,000/mo</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 5 -->
+                    <div class="job-row" data-type="parttime">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-edubridge.png
+                                EduBridge Online logo, 104x104px
+                            -->
+                            <img src="images/logo-edubridge.png" alt="EduBridge" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>Online Tutor – Mathematics</h3>
+                            <div class="company-name">EduBridge Online</div>
+                            <div class="job-row-meta">
+                                <span>🖥️ Remote</span>
+                                <span>⏱️ Flexible hours</span>
+                                <span>🎓 Maths / Sciences</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-orange">Part-Time</span>
+                                <span class="tag tag-green" style="margin-left:6px;">Remote</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 900/hr</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 6 -->
+                    <div class="job-row" data-type="internship">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-infinitylabs.png
+                                Infinity Labs logo, 104x104px
+                            -->
+                            <img src="images/logo-infinitylabs.png" alt="Infinity Labs" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>Data Science Intern</h3>
+                            <div class="company-name">Infinity Labs</div>
+                            <div class="job-row-meta">
+                                <span>📍 Colombo 7</span>
+                                <span>⏱️ 4 months</span>
+                                <span>🎓 CS / Statistics</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-blue">Internship</span>
+                                <span class="tag tag-purple" style="margin-left:6px;">Python</span>
+                                <span class="tag tag-purple" style="margin-left:6px;">ML</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 42,000/mo</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 7 -->
+                    <div class="job-row" data-type="graduate">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-ceylonaero.png
+                                Ceylon Aerospace logo, 104x104px
+                            -->
+                            <img src="images/logo-ceylonaero.png" alt="Ceylon Aerospace" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>Junior Software Engineer</h3>
+                            <div class="company-name">Ceylon Aerospace</div>
+                            <div class="job-row-meta">
+                                <span>📍 Katunayake</span>
+                                <span>⏱️ Full-time</span>
+                                <span>🎓 Engineering</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-purple">Graduate</span>
+                                <span class="tag tag-blue" style="margin-left:6px;">On-site</span>
+                                <span class="tag tag-purple" style="margin-left:6px;">Java</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 95,000/mo</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 8 -->
+                    <div class="job-row" data-type="parttime remote">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-writeco.png
+                                Write&Co logo, 104x104px
+                            -->
+                            <img src="images/logo-writeco.png" alt="Write&Co" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>Content Writer (Freelance)</h3>
+                            <div class="company-name">Write&amp;Co Agency</div>
+                            <div class="job-row-meta">
+                                <span>🖥️ Remote</span>
+                                <span>⏱️ Per project</span>
+                                <span>🎓 English / Journalism</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-orange">Part-Time</span>
+                                <span class="tag tag-green" style="margin-left:6px;">Remote</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 3/word</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 9 -->
+                    <div class="job-row" data-type="internship">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-tropichealth.png
+                                TropicHealth logo, 104x104px
+                            -->
+                            <img src="images/logo-tropichealth.png" alt="TropicHealth" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>Healthcare Research Intern</h3>
+                            <div class="company-name">TropicHealth Research</div>
+                            <div class="job-row-meta">
+                                <span>📍 Colombo 10</span>
+                                <span>⏱️ 6 months</span>
+                                <span>🎓 Medicine / Biology</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-blue">Internship</span>
+                                <span class="tag tag-orange" style="margin-left:6px;">Research</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 30,000/mo</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Row 10 -->
+                    <div class="job-row" data-type="graduate">
+                        <div class="company-logo">
+                            <!--
+                                IMAGE PLACEHOLDER: logo-primelogistics.png
+                                PrimeLogistics logo, 104x104px
+                            -->
+                            <img src="images/logo-primelogistics.png" alt="PrimeLogistics" />
+                        </div>
+                        <div class="job-row-info">
+                            <h3>Business Analyst – Operations</h3>
+                            <div class="company-name">PrimeLogistics</div>
+                            <div class="job-row-meta">
+                                <span>📍 Colombo 15</span>
+                                <span>⏱️ Full-time</span>
+                                <span>🎓 Business / Management</span>
+                            </div>
+                            <div style="margin-top:8px;">
+                                <span class="tag tag-purple">Graduate</span>
+                                <span class="tag tag-blue" style="margin-left:6px;">On-site</span>
+                            </div>
+                        </div>
+                        <div class="job-row-right">
+                            <span class="salary">LKR 75,000/mo</span>
+                            <a href="apply.html" class="btn btn-primary" style="font-size:.82rem;padding:8px 16px;">Apply</a>
+                        </div>
+                    </div>
+
+                </div><!-- END .jobs-list -->
+            </div><!-- END .jobs-main -->
+
+        </div><!-- END .jobs-layout -->
+    </div>
+
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Uni<span>Jobs</span></div>
+                    <p>The job platform built by students, for students.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">Browse Jobs</a></li>
+                        <li><a href="apply.html">Apply Now</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Job Types</h4>
+                    <ul>
+                        <li><a href="jobs.html">Internships</a></li>
+                        <li><a href="jobs.html">Part-Time</a></li>
+                        <li><a href="jobs.html">Graduate Roles</a></li>
+                        <li><a href="jobs.html">Remote Jobs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@unijobs.lk">hello@unijobs.lk</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 UniJobs. CSCI 12562 Group Project.</span>
+                <span>Today: <span id="footer-date">Loading...</span></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/date.js"></script>
+    <script src="js/jobs.js"></script>
+
+</body>
+</html>
+
