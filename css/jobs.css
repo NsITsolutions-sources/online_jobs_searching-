@@ -1,6 +1,4 @@
-/* ============================================================
-   jobs.css — Browse Jobs Elements
-   ============================================================ */
+/* jobs.css  */
 
 .filter-bar { background: var(--clr-white); border-bottom: 1px solid var(--clr-border); padding: 18px 0; position: sticky; top: var(--nav-h); z-index: 100; }
 .filter-inner { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
@@ -25,7 +23,7 @@
 .jobs-list { display: flex; flex-direction: column; gap: 16px; }
 .job-row { background: var(--clr-white); border: 1.5px solid var(--clr-border); border-radius: var(--radius-md); padding: 20px 24px; display: flex; align-items: center; gap: 18px; transition: box-shadow .2s, border-color .2s; }
 .job-row:hover { box-shadow: var(--shadow-md); border-color: var(--clr-primary); }
-.job-row .company-logo { width: 52px; height: 52px; }
+.job-row .company-logo {width: 200px; height: 200px; border-radius: 50px; display: flex; align-items: center; justify-content: left;  margin-bottom: 16px; object-fit:cover; overflow:hidden;}
 .job-row-info { flex: 1; }
 .job-row-info h3 { font-size: 16px; font-weight: 700; color: var(--clr-dark); margin-bottom: 3px; }
 .job-row-info .company-name { font-size:13.92px; color: var(--clr-mid); margin-bottom: 8px; }
