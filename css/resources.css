@@ -1,27 +1,26 @@
-/* resources.css  */
-
-.resources-hero { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: var(--clr-white); padding: 60px 0; text-align: center; }
+﻿
+.resources-hero { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: #ffffff; padding: 60px 0; text-align: center; }
 
 .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
-.resource-card { background: var(--clr-white); border: 1px solid var(--clr-border); border-radius: var(--radius-md); padding: 28px; transition: box-shadow .2s, transform .2s; }
-.resource-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.resource-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px; transition: box-shadow .2s, transform .2s; }
+.resource-card:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(0,0,0,.10); }
 .resource-card .rc-icon { width: 100%; height: 190px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; object-fit:cover; overflow:hidden;}
-.resource-card h3 { font-size: 16.8px; font-weight: 700; margin-bottom: 8px; color: var(--clr-dark); }
-.resource-card p { font-size: 13.92px; color: var(--clr-mid); line-height: 1.65; margin-bottom: 16px; }
+.resource-card h3 { font-size: 16.8px; font-weight: 700; margin-bottom: 8px; color: #0f172a; }
+.resource-card p { font-size: 13.92px; color: #475569; line-height: 1.65; margin-bottom: 16px; }
 
-.accordion { border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; }
-.accordion-item { border-bottom: 1px solid var(--clr-border); }
+.accordion { border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
+.accordion-item { border-bottom: 1px solid #e2e8f0; }
 .accordion-item:last-child { border-bottom: none; }
-.accordion-trigger { width: 100%; text-align: left; background: var(--clr-white); border: none; padding: 18px 24px; font-family: var(--ff-body); font-size:15.2px; font-weight: 600; color: var(--clr-dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background .2s; }
-.accordion-trigger:hover, .accordion-trigger.open { background: var(--clr-light); }
-.accordion-trigger .acc-icon { font-size: 17.6px; transition: transform .3s; color: var(--clr-primary); }
+.accordion-trigger { width: 100%; text-align: left; background: #ffffff; border: none; padding: 18px 24px; font-family: 'Inter', sans-serif; font-size:15.2px; font-weight: 600; color: #0f172a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background .2s; }
+.accordion-trigger:hover, .accordion-trigger.open { background: #f1f5f9; }
+.accordion-trigger .acc-icon { font-size: 17.6px; transition: transform .3s; color: #2563eb; }
 .accordion-trigger.open .acc-icon { transform: rotate(45deg); }
-.accordion-body { display: none; padding: 4px 24px 20px; font-size: 14.4px; color: var(--clr-mid); line-height: 1.7; background: var(--clr-white); }
+.accordion-body { display: none; padding: 4px 24px 20px; font-size: 14.4px; color: #475569; line-height: 1.7; background: #ffffff; }
 
 .tips-list { display: flex; flex-direction: column; gap: 14px; }
-.tip-item { display: flex; gap: 14px; padding: 18px; background: var(--clr-white); border: 1px solid var(--clr-border); border-radius: var(--radius-md); align-items: flex-start; border-left: 10px solid var(--clr-primary); }
-.tip-item h4 { font-size: 15.2px; font-weight: 700; margin-bottom: 4px; color: var(--clr-dark); }
-.tip-item p { font-size: 13.92px; color: var(--clr-mid); line-height: 1.6; }
+.tip-item { display: flex; gap: 14px; padding: 18px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; align-items: flex-start; border-left: 10px solid #2563eb; }
+.tip-item h4 { font-size: 15.2px; font-weight: 700; margin-bottom: 4px; color: #0f172a; }
+.tip-item p { font-size: 13.92px; color: #475569; line-height: 1.6; }
 
 @media (max-width: 960px) {
     .resources-grid { grid-template-columns: 1fr 1fr; }
@@ -29,3 +28,5 @@
 @media (max-width: 640px) {
     .resources-grid { grid-template-columns: 1fr; }
 }
+
+
