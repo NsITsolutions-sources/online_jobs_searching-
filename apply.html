@@ -10,7 +10,9 @@
 </head>
 <body>
 
-    <!--Nav BAr -->
+    <!-- =============================================
+         NAVIGATION BAR
+         ============================================= -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">Uni<span>Jobs</span></a>
@@ -25,12 +27,11 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-    
-        
     </nav>
 
-    <!-- Page Hero -->
-     
+    <!-- =============================================
+         PAGE HERO
+         ============================================= -->
     <div class="page-hero">
         <div class="container">
             <h1>Submit Your Application</h1>
@@ -38,11 +39,13 @@
         </div>
     </div>
 
+    <!-- =============================================
+         APPLY LAYOUT: FORM + SIDEBAR
+         ============================================= -->
     <div class="container">
         <div class="apply-layout">
 
-            <!-- Application Form -->
-
+            <!-- APPLICATION FORM -->
             <div class="form-card">
                 <h2>Job Application Form</h2>
                 <p class="form-subtitle">
@@ -50,11 +53,13 @@
                     Your information is kept private and only shared with the employer you apply to.
                 </p>
 
-            
+                <!--
+                    NOTE: We prevent default submission with JavaScript.
+                    onsubmit returns false to stop page reload.
+                -->
                 <form id="applyForm" onsubmit="return false;">
 
-                    <!-- First & Last Name -->
-
+                    <!-- Row 1: First & Last Name -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name <span class="required">*</span></label>
@@ -71,16 +76,14 @@
                     </div>
 
                     <!-- Email -->
-
                     <div class="form-group">
                         <label for="email">Email Address <span class="required">*</span></label>
                         <input type="email" id="email" name="email"
-                               placeholder="mail@university.ac.lk" />
+                               placeholder="yourname@university.ac.lk" />
                         <span class="error-msg" id="err-email">Please enter a valid email address.</span>
                     </div>
 
                     <!-- Phone -->
-
                     <div class="form-group">
                         <label for="phone">Phone Number <span class="required">*</span></label>
                         <input type="tel" id="phone" name="phone"
@@ -88,13 +91,12 @@
                         <span class="error-msg" id="err-phone">Please enter a valid Sri Lankan phone number (10 digits).</span>
                     </div>
 
-                    <!-- University & Degree -->
-
+                    <!-- Row 2: University & Degree -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="university">University / Institute <span class="required">*</span></label>
                             <input type="text" id="university" name="university"
-                                   placeholder="e.g. University of Kelaniya" />
+                                   placeholder="e.g. University of Colombo" />
                             <span class="error-msg" id="err-university">Please enter your university.</span>
                         </div>
                         <div class="form-group">
@@ -105,8 +107,7 @@
                         </div>
                     </div>
 
-                    <!-- Year & GPA -->
-
+                    <!-- Row 3: Year & GPA -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="studyYear">Current Year of Study <span class="required">*</span></label>
@@ -127,8 +128,7 @@
                         </div>
                     </div>
 
-                    <!-- Job Role-->
-
+                    <!-- Job Role Applying For -->
                     <div class="form-group">
                         <label for="jobRole">Position Applying For <span class="required">*</span></label>
                         <select id="jobRole" name="jobRole">
@@ -148,7 +148,6 @@
                     </div>
 
                     <!-- Skills -->
-
                     <div class="form-group">
                         <label for="skills">Key Skills <span class="required">*</span></label>
                         <input type="text" id="skills" name="skills"
@@ -157,19 +156,17 @@
                     </div>
 
                     <!-- Cover Note -->
-
                     <div class="form-group">
                         <label for="coverNote">Cover Note <span class="required">*</span></label>
                         <textarea id="coverNote" name="coverNote" rows="5"
-                                  placeholder="Briefly tell us why you're a great fit for this role"></textarea>
+                                  placeholder="Briefly tell us why you're a great fit for this role (min. 30 characters)..."></textarea>
                         <span class="error-msg" id="err-coverNote">Please write a short cover note (at least 30 characters).</span>
                     </div>
 
                     <!-- CV / Resume Upload -->
-
                     <div class="form-group">
                         <label>Upload CV / Resume <span class="required">*</span></label>
-                        
+                        <!-- Custom styled file upload area -->
                         <div class="file-upload-zone" id="fileZone" onclick="document.getElementById('cvFile').click()">
                             <div class="upload-icon">📄</div>
                             <p>Click to upload your CV <br />
@@ -182,8 +179,7 @@
                         <span class="error-msg" id="err-cvFile">Please upload your CV (PDF or DOCX).</span>
                     </div>
 
-                    <!-- Checkbox -->
-
+                    <!-- Terms Checkbox -->
                     <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;">
                         <input type="checkbox" id="agreeTerms" name="agreeTerms"
                                style="margin-top:3px;accent-color:#2563eb;width:16px;height:16px;flex-shrink:0;" />
@@ -198,7 +194,6 @@
                     </div>
 
                     <!-- Submit Button -->
-
                     <button type="button" class="btn btn-primary"
                             id="submitBtn"
                             onclick="validateAndSubmit()"
@@ -206,10 +201,9 @@
                         Submit Application →
                     </button>
 
-                    <!-- Success Message  -->
-
+                    <!-- Success Message (shown after valid submission) -->
                     <div class="form-success" id="formSuccess">
-                        <h4>Application Submitted!</h4>
+                        <h4>🎉 Application Submitted!</h4>
                         <p>
                             Thank you for applying. The employer will review your application
                             and contact you within 5–7 business days.
@@ -219,59 +213,60 @@
 
                 </form>
             </div>
-            
+            <!-- END FORM CARD -->
 
-            <!-- sidebar -->
+            <!-- SIDEBAR -->
             <aside class="apply-sidebar">
 
-                
+                <!-- Application Deadline Box (JS Date powered) -->
                 <div class="deadline-box" id="deadlineBox">
                     <h4>Application Deadline</h4>
                     <div class="deadline-date" id="deadlineDate">Loading...</div>
                     <div class="days-left" id="daysLeft"></div>
                 </div>
 
-               
+                <!-- Tips -->
                 <div class="info-box" style="margin-top:20px;">
-                    <h4> Before You Submit</h4>
+                    <h4>📋 Before You Submit</h4>
                     <ul>
-                        <li> Update your CV to the latest version</li>
-                        <li> Double-check your contact details</li>
-                        <li> Add a LinkedIn or portfolio link if you have one</li>
-                        <li> Save CV as PDF for best compatibility</li>
-                    </ul>
-                    
-                </div>
-
-                
-                <div class="info-box">
-                    <h4>What Happens Next</h4>
-                    <ul>
-                        <li>You'll get a confirmation email</li>
-                        <li>Employer reviews your application</li>
-                        <li>You may be invited for an interview</li>
-                        <li>Receive your offer letter</li>
+                        <li>📄 Update your CV to the latest version</li>
+                        <li>✅ Double-check your contact details</li>
+                        <li>💬 Personalise your cover note</li>
+                        <li>🔗 Add a LinkedIn or portfolio link if you have one</li>
+                        <li>📁 Save CV as PDF for best compatibility</li>
                     </ul>
                 </div>
 
-                
+                <!-- What Happens Next -->
                 <div class="info-box">
-                    <h4>Need Help</h4>
+                    <h4>⏭️ What Happens Next?</h4>
                     <ul>
-                        <li><a href="mailto:hello@unijobs.lk">hello@unijobs.lk</a></li>
-                        <li>Live chat on weekdays 9am–5pm</li>
-                        <li><a href="resources.html">Visit our Resources page</a></li>
+                        <li>📨 You'll get a confirmation email</li>
+                        <li>👀 Employer reviews your application</li>
+                        <li>📞 You may be invited for an interview</li>
+                        <li>🎉 Receive your offer letter</li>
+                    </ul>
+                </div>
+
+                <!-- Help -->
+                <div class="info-box">
+                    <h4>🆘 Need Help?</h4>
+                    <ul>
+                        <li>✉️ <a href="mailto:hello@unijobs.lk">hello@unijobs.lk</a></li>
+                        <li>💬 Live chat on weekdays 9am–5pm</li>
+                        <li>📚 <a href="resources.html">Visit our Resources page</a></li>
                     </ul>
                 </div>
 
             </aside>
-            
+            <!-- END SIDEBAR -->
 
         </div>
     </div>
 
-    <!--footer -->
-
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -307,7 +302,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2026 UniJobs. All rights reserved.</span>
+                <span>© 2025 UniJobs. CSCI 12562 Group Project.</span>
                 <span>Today: <span id="footer-date">Loading...</span></span>
             </div>
         </div>
