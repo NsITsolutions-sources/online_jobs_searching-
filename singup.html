@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" edir="ltr" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up — UniJobs</title>
+    <link rel="stylesheet" href="css/global.css" />
+</head>
+<body>
+   
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">Uni<span>Jobs</span></a>
+
+            <!-- Nav Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">Browse Jobs</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
+            </ul>
+
+            <!-- Mobile hamburger -->
+            <div class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+   
+    <div class="page-hero">
+        <div class="container">
+            <h1>Sign Up</h1>
+            <p>Create your UniJobs account to start applying for jobs and internships.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="form-card">
+            <h2>Create Account</h2>
+            <form id="signUpForm" onsubmit="return false;">
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName"
+                           placeholder="e.g. Ashan Perera" />
+                    <span class="error-msg" id="err-fullName">Please enter your full name.</span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email"
+                           placeholder="yourname@university.ac.lk" />
+                    <span class="error-msg" id="err-email">Please enter a valid email address.</span>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password <span class="required">*</span></label>
+                    <input type="password" id="password" name="password"
+                           placeholder="••••••••" />
+                    <span class="error-msg" id="err-password">Please enter a password.</span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                    <input type="password" id="confirmPassword" name="confirmPassword"
+                           placeholder="••••••••" />
+                    <span class="error-msg" id="err-confirmPassword">Please confirm your password.</span>
+                </div>
+
+                <!-- Terms Checkbox -->
+                <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;">
+                    <input type="checkbox" id="agreeTerms" name="agreeTerms"
+                           style="margin-top:3px;accent-color:#2563eb;width:16px;height:16px;flex-shrink:0;" />
+                    <div>
+                        <label for="agreeTerms" style="font-size:.87rem;color:#475569;cursor:pointer;">
+                            I agree to the <a href="#" style="color:#2563eb;">Terms of Service</a> and
+                            <a href="#" style="color:#2563eb;">Privacy Policy</a>.
+                        </label>
+                        <span class="error-msg" id="err-agreeTerms">You must agree to the terms.</span>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="button" class="btn btn-primary"
+                        id="submitBtn"
+                        style="width:100%;padding:14px;font-size:1rem;margin-top:10px;">
+                    Sign Up
+                </button>
+
+                <!-- Success Message -->
+                <div class="form-success" id="formSuccess">
+                    <h4>🎉 Account Created!</h4>
+                    <p>
+                        Your account has been created successfully. You can now log in and start applying for jobs.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand column -->
+                <div class="footer-brand">
+                    <div class="logo">Uni<span>Jobs</span></div>
+                    <p>
+                        The job platform built by students, for students.
+                        We bridge the gap between university talent and
+                        forward-thinking employers across Sri Lanka.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">Browse Jobs</a></li>
+                        <li><a href="apply.html">Apply Now</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
+
+                <!-- Job Types -->
+                <div class="footer-col">
+                    <h4>Job Types</h4>
+                    <ul>
+                        <li><a href="jobs.html">Internships</a></li>
+                        <li><a href="jobs.html">Part-Time</a></li>
+                        <li><a href="jobs.html">Graduate Roles</a></li>
+                        <li><a href="jobs.html">Remote Jobs</a></li>
+                        <li><a href="jobs.html">On-Campus</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@unijobs.lk">hello@unijobs.lk</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div><!-- END .footer-grid -->
+
+            <div class="footer-bottom">
+                <span>© 2026 UniJobs. All rights reserved.</span>
+                <span>Today: <span id="footer-date">Loading...</span></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Date script for footer date -->
+    <script src="js/date.js"></script>
+
+    <!-- Form validation script -->
+    <script>
+        function validateAndSubmit() {
+            // Get form values
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+
+            // Reset error messages
+            resetErrors();
+
+            let valid = true;
+
+            if (fullName === '') {
+                showError('err-fullName', 'Please enter your full name.');
+                valid = false;
+            }
+
+            if (email === '') {
+                showError('err-email', 'Please enter your email address.');
+                valid = false;
+            } else if (!isValidEmail(email)) {
+                showError('err-email', 'Please enter a valid email address.');
+                valid = false;
+            }
+
+            if (password === '') {
+                showError('err-password', 'Please enter a password.');
+                valid = false;
+            } else if (password.length < 6) {
+                showError('err-password', 'Password must be at least 6 characters long.');
+                valid = false;
+            }
+
+            if (confirmPassword === '') {
+                showError('err-confirmPassword', 'Please confirm your password.');
+                valid = false;
+            } else if (password !== confirmPassword) {
+                showError('err-confirmPassword', 'Passwords do not match.');
+                valid = false;
+            }
+
+            if (!agreeTerms) {
+                showError('err-agreeTerms', 'You must agree to the terms.');
+                valid = false;
+            }
+
+            if (valid) {
+                // Show success message
+                document.getElementById('formSuccess').style.display = 'block';
+                // Optionally, reset the form
+                document.getElementById('signUpForm').reset();
+            }
+        }
+
+        function showError(elementId, message) {
+            const errorSpan = document.getElementById(elementId);
+            errorSpan.textContent = message;
+            errorSpan.style.display = 'block';
+        }
+
+        function resetErrors() {
+            const errorSpans = document.querySelectorAll('.error-msg');
+            errorSpans.forEach(span => {
+                span.style.display = 'none';
+            });
+            document.getElementById('formSuccess').style.display = 'none';
+        }
+
+        function isValidEmail(email) {
+            // Simple email validation regex
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>
