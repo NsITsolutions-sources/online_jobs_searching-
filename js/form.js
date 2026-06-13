@@ -1,62 +1,149 @@
-/* UniJobs - Form Validation for apply.html */
+const MAX_CV_SIZE = 5 * 1024 * 1024;
 
-function showError(id, msg) {
-    document.getElementById(id).classList.add('error');
-    document.getElementById('err-' + id).textContent = msg;
-    document.getElementById('err-' + id).classList.add('visible');
+function getElement(id) {
+    return document.getElementById(id);
 }
 
-function clearErrors() {
-    document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
-    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('visible'));
+function showFieldError(fieldId, message) {
+    const field = getElement(fieldId);
+    const errorElement = getElement('err-' + fieldId);
+
+    if (field) {
+        field.classList.add('error');
+    }
+
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.classList.add('visible');
+    }
+}
+
+function clearFormErrors() {
+    document.querySelectorAll('.error').forEach(function (field) {
+        field.classList.remove('error');
+    });
+
+    document.querySelectorAll('.error-msg').forEach(function (errorElement) {
+        errorElement.classList.remove('visible');
+    });
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidPhone(phone) {
+    const cleanPhone = phone.replace(/[\s-]/g, '');
+    return /^0\d{9}$/.test(cleanPhone);
 }
 
 function validateAndSubmit() {
-    clearErrors();
-    var ok = true;
+    clearFormErrors();
 
-    var firstName = document.getElementById('firstName').value.trim();
-    var lastName  = document.getElementById('lastName').value.trim();
-    var email     = document.getElementById('email').value.trim();
-    var phone     = document.getElementById('phone').value.trim();
-    var studyYear = document.getElementById('studyYear').value;
-    var jobRole   = document.getElementById('jobRole').value;
-    var coverNote = document.getElementById('coverNote').value.trim();
-    var cvFile    = document.getElementById('cvFile').files;
-    var agreed    = document.getElementById('agreeTerms').checked;
+    const firstName = getElement('firstName').value.trim();
+    const lastName = getElement('lastName').value.trim();
+    const email = getElement('email').value.trim();
+    const phone = getElement('phone').value.trim();
+    const studyYear = getElement('studyYear').value;
+    const jobRole = getElement('jobRole').value;
+    const coverNote = getElement('coverNote').value.trim();
+    const cvFile = getElement('cvFile').files;
+    const agreedTerms = getElement('agreeTerms').checked;
 
-    if (!firstName)               { showError('firstName', 'First name is required.');          ok = false; }
-    if (!lastName)                { showError('lastName',  'Last name is required.');            ok = false; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email', 'Enter a valid email.'); ok = false; }
-    if (!/^0\d{9}$/.test(phone.replace(/[\s-]/g, ''))) { showError('phone', 'Enter a valid 10-digit phone number.'); ok = false; }
-    if (!studyYear)               { showError('studyYear', 'Please select your year of study.'); ok = false; }
-    if (!jobRole)                 { showError('jobRole',   'Please select a position.');         ok = false; }
-    if (coverNote.length < 30)    { showError('coverNote', 'Cover note must be at least 30 characters.'); ok = false; }
-    if (!cvFile || cvFile.length === 0) { showError('cvFile', 'Please upload your CV.');        ok = false; }
-    if (!agreed)                  { showError('agreeTerms', 'You must agree to the terms.');    ok = false; }
+    let isValid = true;
 
-    if (ok) {
-        var btn = document.getElementById('submitBtn');
-        btn.disabled = true;
-        btn.textContent = 'Submitting...';
-        setTimeout(function () {
-            document.getElementById('formSuccess').classList.add('show');
-            btn.textContent = 'Application Submitted ✓';
-        }, 800);
+    if (!firstName) {
+        showFieldError('firstName', 'First name is required.');
+        isValid = false;
+    }
+
+    if (!lastName) {
+        showFieldError('lastName', 'Last name is required.');
+        isValid = false;
+    }
+
+    if (!isValidEmail(email)) {
+        showFieldError('email', 'Enter a valid email address.');
+        isValid = false;
+    }
+
+    if (!isValidPhone(phone)) {
+        showFieldError('phone', 'Enter a valid 10-digit phone number.');
+        isValid = false;
+    }
+
+    if (!studyYear) {
+        showFieldError('studyYear', 'Please select your year of study.');
+        isValid = false;
+    }
+
+    if (!jobRole) {
+        showFieldError('jobRole', 'Please select a position.');
+        isValid = false;
+    }
+
+    if (coverNote.length < 30) {
+        showFieldError('coverNote', 'Cover note must be at least 30 characters.');
+        isValid = false;
+    }
+
+    if (!cvFile || cvFile.length === 0) {
+        showFieldError('cvFile', 'Please upload your CV.');
+        isValid = false;
+    }
+
+    if (!agreedTerms) {
+        showFieldError('agreeTerms', 'You must agree to the terms.');
+        isValid = false;
+    }
+
+    if (isValid) {
+        showApplicationSuccess();
     }
 }
 
-function handleFileSelect(input) {
-    var dis = document.getElementById('fileNameDisplay');
-    if (input.files && input.files[0]) {
-        if (input.files[0].size > 5 * 1024 * 1024) {
-            alert('File too large. Max 5MB.');
-            input.value = '';
-            dis.textContent = '';
-        } else {
-            dis.textContent = '✅ ' + input.files[0].name;
-            document.getElementById('cvFile').classList.remove('error');
-            document.getElementById('err-cvFile').classList.remove('visible');
-        }
+function showApplicationSuccess() {
+    const submitButton = getElement('submitBtn');
+    const successMessage = getElement('formSuccess');
+
+    if (!submitButton || !successMessage) {
+        return;
     }
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+
+    setTimeout(function () {
+        successMessage.classList.add('show');
+        submitButton.textContent = 'Application Submitted';
+    }, 800);
+}
+
+function handleFileSelect(input) {
+    const fileNameDisplay = getElement('fileNameDisplay');
+
+    if (!input.files || input.files.length === 0) {
+        return;
+    }
+
+    const selectedFile = input.files[0];
+
+    if (selectedFile.size > MAX_CV_SIZE) {
+        alert('File too large. Please upload a CV under 5MB.');
+        input.value = '';
+
+        if (fileNameDisplay) {
+            fileNameDisplay.textContent = '';
+        }
+
+        showFieldError('cvFile', 'Please upload a CV under 5MB.');
+        return;
+    }
+
+    if (fileNameDisplay) {
+        fileNameDisplay.textContent = selectedFile.name;
+    }
+
+    getElement('cvFile').classList.remove('error');
+    getElement('err-cvFile').classList.remove('visible');
 }

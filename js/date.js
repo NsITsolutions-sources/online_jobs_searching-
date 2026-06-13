@@ -1,12 +1,19 @@
-function updateDateTime() {
-            var now = new Date();
-            var options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-     };
-             var formattedDateTime = now.toLocaleDateString('en-US', options);
-             document.getElementById('footer-date').textContent = formattedDateTime;
+function updateFooterDate() {
+    const dateElement = document.getElementById('footer-date');
+
+    if (!dateElement) {
+        return;
+    }
+
+    const today = new Date();
+    const dateOptions = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+
+    dateElement.textContent = today.toLocaleDateString('en-US', dateOptions);
 }
-updateDateTime();
+
+updateFooterDate();

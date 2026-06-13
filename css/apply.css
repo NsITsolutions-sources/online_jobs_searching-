@@ -1,5 +1,4 @@
 ﻿.apply-layout { display: grid; grid-template-columns: 1fr 380px; gap: 48px; padding: 60px 0; }
-
 .form-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; box-shadow: 0 4px 16px rgba(0,0,0,.10); }
 .form-card h2 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
 .form-card .form-subtitle { color: #475569; margin-bottom: 32px; font-size: 15px; }
@@ -25,7 +24,6 @@
 .form-success.show { display: block; }
 .form-success h4 { color: #16a34a; font-size: 18px; margin-bottom: 6px; }
 .form-success p { color: #166534; font-size: 14px; }
-
 .apply-sidebar .info-box { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
 .apply-sidebar .info-box h4 { font-size: 14px; font-weight: 700; margin-bottom: 14px; color: #0f172a; }
 .apply-sidebar .info-box ul li { font-size: 14px; color: #475569; padding: 7px 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px; }
@@ -42,5 +40,3 @@
 @media (max-width: 640px) {
     .form-row { grid-template-columns: 1fr; }
 }
-
-

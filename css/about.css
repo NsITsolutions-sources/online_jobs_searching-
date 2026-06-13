@@ -1,5 +1,4 @@
-﻿
-.about-mission { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+﻿.about-mission { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .about-mission img { border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
 .about-mission .mission-text h2 { font-size: 2rem; font-weight: 800; margin-bottom: 18px; color: #0f172a; }
 .about-mission .mission-text p { color: #475569; margin-bottom: 14px; line-height: 1.75; }
@@ -30,4 +29,3 @@
 @media (max-width: 640px) {
     .team-grid { grid-template-columns: 1fr 1fr; }
 }
-

@@ -1,74 +1,92 @@
-    function validateAndSubmit() {
-            // Get form values
-            const fullName = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            const agreeTerms = document.getElementById('agreeTerms').checked;
+function getElement(id) {
+    return document.getElementById(id);
+}
 
-            // Reset error messages
-            resetErrors();
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-            let valid = true;
+function showSignUpError(errorId, message) {
+    const errorElement = getElement(errorId);
 
-            if (fullName === '') {
-                showError('err-fullName', 'Please enter your full name.');
-                valid = false;
-            }
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+}
 
-            if (email === '') {
-                showError('err-email', 'Please enter your email address.');
-                valid = false;
-            } else if (!isValidEmail(email)) {
-                showError('err-email', 'Please enter a valid email address.');
-                valid = false;
-            }
+function resetSignUpErrors() {
+    document.querySelectorAll('.error-msg').forEach(function (errorElement) {
+        errorElement.textContent = '';
+        errorElement.style.display = 'none';
+    });
 
-            if (password === '') {
-                showError('err-password', 'Please enter a password.');
-                valid = false;
-            } else if (password.length < 6) {
-                showError('err-password', 'Password must be at least 6 characters long.');
-                valid = false;
-            }
+    const successMessage = getElement('formSuccess');
 
-            if (confirmPassword === '') {
-                showError('err-confirmPassword', 'Please confirm your password.');
-                valid = false;
-            } else if (password !== confirmPassword) {
-                showError('err-confirmPassword', 'Passwords do not match.');
-                valid = false;
-            }
+    if (successMessage) {
+        successMessage.classList.remove('show');
+    }
+}
 
-            if (!agreeTerms) {
-                showError('err-agreeTerms', 'You must agree to the terms.');
-                valid = false;
-            }
+function validateAndSubmit() {
+    resetSignUpErrors();
 
-            if (valid) {
-                // Show success message
-                document.getElementById('formSuccess').classList.add('show');
-                // Optionally, reset the form
-                document.getElementById('signUpForm').reset();
-            }
-        }
+    const fullName = getElement('fullName').value.trim();
+    const email = getElement('email').value.trim();
+    const password = getElement('password').value;
+    const confirmPassword = getElement('confirmPassword').value;
+    const agreedTerms = getElement('agreeTerms').checked;
 
-        function showError(elementId, message) {
-            const errorSpan = document.getElementById(elementId);
-            errorSpan.textContent = message;
-            errorSpan.style.display = 'block';
-        }
+    let isValid = true;
 
-        function resetErrors() {
-            const errorSpans = document.querySelectorAll('.error-msg');
-            errorSpans.forEach(span => {
-                span.style.display = 'none';
-            });
-            document.getElementById('formSuccess').classList.remove('show');
-        }
+    if (!fullName) {
+        showSignUpError('err-fullName', 'Please enter your full name.');
+        isValid = false;
+    }
 
-        function isValidEmail(email) {
-            // Simple email validation regex
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
+    if (!email) {
+        showSignUpError('err-email', 'Please enter your email address.');
+        isValid = false;
+    } else if (!isValidEmail(email)) {
+        showSignUpError('err-email', 'Please enter a valid email address.');
+        isValid = false;
+    }
+
+    if (!password) {
+        showSignUpError('err-password', 'Please enter a password.');
+        isValid = false;
+    } else if (password.length < 6) {
+        showSignUpError('err-password', 'Password must be at least 6 characters long.');
+        isValid = false;
+    }
+
+    if (!confirmPassword) {
+        showSignUpError('err-confirmPassword', 'Please confirm your password.');
+        isValid = false;
+    } else if (password !== confirmPassword) {
+        showSignUpError('err-confirmPassword', 'Passwords do not match.');
+        isValid = false;
+    }
+
+    if (!agreedTerms) {
+        showSignUpError('err-agreeTerms', 'You must agree to the terms.');
+        isValid = false;
+    }
+
+    if (isValid) {
+        showSignUpSuccess();
+    }
+}
+
+function showSignUpSuccess() {
+    const signUpForm = getElement('signUpForm');
+    const successMessage = getElement('formSuccess');
+
+    if (signUpForm) {
+        signUpForm.reset();
+    }
+
+    if (successMessage) {
+        successMessage.classList.add('show');
+    }
+}
