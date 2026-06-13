@@ -1,6 +1,3 @@
-/* ============================================================
-   about.css — About Us Specifics
-   ============================================================ */
 
 .about-mission { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .about-mission img { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
