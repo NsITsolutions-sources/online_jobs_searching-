@@ -1,1 +1,0 @@
-document.querySelector(".footer-bottom").textContent = "© 2024 JobFinder. All rights reserved.";
