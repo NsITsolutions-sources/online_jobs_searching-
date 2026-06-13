@@ -21,8 +21,7 @@
 .accordion-body { display: none; padding: 4px 24px 20px; font-size: .9rem; color: var(--clr-mid); line-height: 1.7; background: var(--clr-white); }
 
 .tips-list { display: flex; flex-direction: column; gap: 14px; }
-.tip-item { display: flex; gap: 14px; padding: 18px; background: var(--clr-white); border: 1px solid var(--clr-border); border-radius: var(--radius-md); align-items: flex-start; }
-.tip-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.tip-item { display: flex; gap: 14px; padding: 18px; background: var(--clr-white); border: 1px solid var(--clr-border); border-radius: var(--radius-md); align-items: flex-start; border-left: 10px solid var(--clr-primary); }
 .tip-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: 4px; color: var(--clr-dark); }
 .tip-item p { font-size: .87rem; color: var(--clr-mid); line-height: 1.6; }
 
