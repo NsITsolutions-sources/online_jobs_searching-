@@ -1,0 +1,108 @@
+.signup-section {
+    background: var(--clr-light);
+    padding: 60px 0;
+}
+
+.form-card {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.form-card h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--clr-dark);
+    margin-bottom: 8px;
+}
+
+.form-card .form-subtitle {
+    color: var(--clr-mid);
+    margin-bottom: 32px;
+    font-size: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--clr-dark);
+    margin-bottom: 6px;
+}
+
+.form-group label .required {
+    color: var(--clr-error);
+    margin-left: 2px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--ff-body);
+    font-size: 15px;
+    color: var(--clr-dark);
+    background: var(--clr-white);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-group input:focus {
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+.form-group input.error {
+    border-color: var(--clr-error);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, .1);
+}
+
+.error-msg {
+    font-size: 13px;
+    color: var(--clr-error);
+    margin-top: 4px;
+    display: none;
+}
+
+.error-msg.visible {
+    display: block;
+}
+
+.form-success {
+    display: none;
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-success.show {
+    display: block;
+}
+
+.form-success h4 {
+    color: var(--clr-success);
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.form-success p {
+    color: #166534;
+    font-size: 14px;
+}
+
+@media (max-width: 640px) {
+    .signup-section {
+        padding: 44px 0;
+    }
+
+    .form-card {
+        padding: 28px 22px;
+    }
+}

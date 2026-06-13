@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" edir="ltr" />
+    <meta charset="UTF-8" dir="ltr" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up — UniJobs</title>
     <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/singup.css" />
 </head>
 <body>
    
@@ -18,7 +19,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="jobs.html">Browse Jobs</a></li>
                 <li><a href="resources.html">Resources</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="singup.html">Sign Up</a></li>
                 <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
             </ul>
 
@@ -88,6 +89,7 @@
                 <!-- Submit Button -->
                 <button type="button" class="btn btn-primary"
                         id="submitBtn"
+                        onclick="validateAndSubmit()"
                         style="width:100%;padding:14px;font-size:1rem;margin-top:10px;">
                     Sign Up
                 </button>
@@ -124,7 +126,7 @@
                         <li><a href="jobs.html">Browse Jobs</a></li>
                         <li><a href="apply.html">Apply Now</a></li>
                         <li><a href="resources.html">Resources</a></li>
-                        <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="singup.html" class="active">Sign Up</a></li>
                     </ul>
                 </div>
 
@@ -213,7 +215,7 @@
 
             if (valid) {
                 // Show success message
-                document.getElementById('formSuccess').style.display = 'block';
+                document.getElementById('formSuccess').classList.add('show');
                 // Optionally, reset the form
                 document.getElementById('signUpForm').reset();
             }
@@ -230,7 +232,7 @@
             errorSpans.forEach(span => {
                 span.style.display = 'none';
             });
-            document.getElementById('formSuccess').style.display = 'none';
+            document.getElementById('formSuccess').classList.remove('show');
         }
 
         function isValidEmail(email) {
