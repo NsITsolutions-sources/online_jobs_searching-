@@ -37,10 +37,15 @@
         </div>
     </div>
     
-    <div class="container">
-        <div class="form-card">
-            <h2>Create Account</h2>
-            <form id="signUpForm" onsubmit="return false;">
+    <div class="container signup-section">
+        <div class="signup-form-container">
+            <div class="form-card">
+                <h2>Create Account</h2>
+                <p class="form-subtitle">
+                    Fields marked with <span class="required">*</span> are required.
+                    Create your account to start applying for jobs and internships.
+                </p>
+                <form id="signUpForm" onsubmit="return false;">
                 <!-- Full Name -->
                 <div class="form-group">
                     <label for="fullName">Full Name <span class="required">*</span></label>
@@ -74,23 +79,21 @@
                 </div>
 
                 <!-- Terms Checkbox -->
-                <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;">
-                    <input type="checkbox" id="agreeTerms" name="agreeTerms"
-                           style="margin-top:3px;accent-color:#2563eb;width:16px;height:16px;flex-shrink:0;" />
+                <div class="form-group terms-wrapper">
+                    <input type="checkbox" id="agreeTerms" name="agreeTerms" />
                     <div>
-                        <label for="agreeTerms" style="font-size:.87rem;color:#475569;cursor:pointer;">
-                            I agree to the <a href="#" style="color:#2563eb;">Terms of Service</a> and
-                            <a href="#" style="color:#2563eb;">Privacy Policy</a>.
+                        <label for="agreeTerms">
+                            I agree to the <a href="#">Terms of Service</a> and
+                            <a href="#">Privacy Policy</a>.
                         </label>
                         <span class="error-msg" id="err-agreeTerms">You must agree to the terms.</span>
                     </div>
                 </div>
 
                 <!-- Submit Button -->
-                <button type="button" class="btn btn-primary"
+                <button type="button" class="btn btn-primary signup-submit"
                         id="submitBtn"
-                        onclick="validateAndSubmit()"
-                        style="width:100%;padding:14px;font-size:1rem;margin-top:10px;">
+                        onclick="validateAndSubmit()">
                     Sign Up
                 </button>
 
@@ -104,7 +107,8 @@
             </form>
         </div>
     </div>
-    
+</div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
