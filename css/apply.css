@@ -1,214 +1,217 @@
-﻿.apply-layout { 
-     display: grid; 
-     grid-template-columns: 1fr 380px; gap: 48px; 
-     padding: 60px 0; 
- }
+.apply-layout { 
+  display: grid; 
+  grid-template-columns: 1fr 380px; gap: 48px; 
+  padding: 60px 0; 
+}
 
 .form-card { 
-    background: #ffffff; 
-    border: 1px solid #e2e8f0; 
-    border-radius: 20px; padding: 40px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.10); 
+  background: white; 
+  border: 1px solid lightgray; 
+  border-radius: 20px; padding: 40px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.10); 
 }
 
 .form-card h2 { 
-    font-size: 26px;
-    font-weight: 800; 
-    margin-bottom: 6px; 
+  font-size: 26px;
+  font-weight: 800; 
+  margin-bottom: 6px; 
 }
+
 .form-card .form-subtitle {
-    color: #475569;
-    margin-bottom: 32px; 
-    font-size: 15px; 
+  color: slategray;
+  margin-bottom: 32px; 
+  font-size: 15px; 
 }
 
 .form-row { 
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 18px; 
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 18px; 
 }
+
 .form-group {
-    margin-bottom: 20px; 
+  margin-bottom: 20px; 
 }
 
 .form-group label { 
-    display: block; 
-    font-size: 14px; 
-    font-weight: 600;
-    color: #0f172a; 
-    margin-bottom: 6px; 
+  display: block; 
+  font-size: 14px; 
+  font-weight: 600;
+  color: darkslategray; 
+  margin-bottom: 6px; 
 }
 
 .form-group label .required { 
-    color: #dc2626;
-    margin-left: 2px;
+  color: crimson;
+  margin-left: 2px;
 }
 
 .form-group input, .form-group select, .form-group textarea { 
-    width: 100%; 
-    padding: 11px 14px; 
-    border: 1.5px solid #e2e8f0; 
-    border-radius: 6px;
-    font-family: 'Inter', sans-serif; 
-    font-size: 15px; 
-    color: #0f172a; 
-    background: #ffffff;
-    transition: border-color .2s, box-shadow .2s; 
-    outline: none; 
+  width: 100%; 
+  padding: 11px 14px; 
+  border: 1.5px solid lightgray; 
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif; 
+  font-size: 15px; 
+  color: darkslategray; 
+  background: white;
+  transition: border-color .2s, box-shadow .2s; 
+  outline: none; 
 }
 
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { 
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37,99,235,.12); 
+  border-color: royalblue;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.12); 
 }
 
 .form-group input.error, .form-group select.error, .form-group textarea.error { 
-    border-color: #dc2626;
-    box-shadow: 0 0 0 3px rgba(220,38,38,.1); 
+  border-color: crimson;
+  box-shadow: 0 0 0 3px rgba(220,38,38,.1); 
 }
 
 .form-group textarea {
-    resize: vertical; 
-    min-height: 100px; 
+  resize: vertical; 
+  min-height: 100px; 
 }
 
 .error-msg { 
-    font-size: 13px; 
-    color: #dc2626;
-    margin-top: 4px;
-    display: none; 
+  font-size: 13px; 
+  color: crimson;
+  margin-top: 4px;
+  display: none; 
 }
 
 .error-msg.visible { 
-    display: block; 
+  display: block; 
 }
 
 .file-upload-zone { 
-    border: 2px dashed #e2e8f0; 
-    border-radius: 12px;
-    padding: 32px; 
-    text-align: center; 
-    cursor: pointer;
-    transition: border-color .2s, background .2s; 
+  border: 2px dashed lightgray; 
+  border-radius: 12px;
+  padding: 32px; 
+  text-align: center; 
+  cursor: pointer;
+  transition: border-color .2s, background .2s; 
 }
 
 .file-upload-zone:hover { 
-    border-color: #2563eb;
-    background: #eff6ff; 
+  border-color: royalblue;
+  background: aliceblue; 
 }
 
 .file-upload-zone input[type="file"] { 
-    display: none; 
+  display: none; 
 }
 
 .file-upload-zone .upload-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 
 .file-upload-zone p { 
-    font-size: 14px;
-    color: #475569;
+  font-size: 14px;
+  color: slategray;
 }
 
 .file-upload-zone .file-name { 
-    margin-top: 8px; 
-    font-size: 13px;
-    color: #2563eb; 
-    font-weight: 600;
+  margin-top: 8px; 
+  font-size: 13px;
+  color: royalblue; 
+  font-weight: 600;
 }
 
 .form-success { 
-    display: none; 
-    background: #f0fdf4; 
-    border: 1.5px solid #86efac; 
-    border-radius: 12px;
-    padding: 20px; 
-    text-align: center;
-    margin-top: 20px; 
+  display: none; 
+  background: honeydew; 
+  border: 1.5px solid lightgreen; 
+  border-radius: 12px;
+  padding: 20px; 
+  text-align: center;
+  margin-top: 20px; 
 }
 
 .form-success.show {
-    display: block;
+  display: block;
 }
 
 .form-success h4 {
-    color: #16a34a;
-    font-size: 18px; 
-    margin-bottom: 6px;
+  color: limegreen;
+  font-size: 18px; 
+  margin-bottom: 6px;
 }
 
 .form-success p { 
-    color: #166534;
-    font-size: 14px;
+  color: darkgreen;
+  font-size: 14px;
 }
 
 .apply-sidebar .info-box {
-    background: #ffffff;
-    border: 1px solid #e2e8f0; 
-    border-radius: 12px;
-    padding: 24px; 
-    margin-bottom: 20px; 
+  background: white;
+  border: 1px solid lightgray; 
+  border-radius: 12px;
+  padding: 24px; 
+  margin-bottom: 20px; 
 }
 
 .apply-sidebar .info-box h4 {
-    font-size: 14px; 
-    font-weight: 700;
-    margin-bottom: 14px;
-    color: #0f172a;
+  font-size: 14px; 
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: darkslategray;
 }
 
 .apply-sidebar .info-box ul li { 
-    font-size: 14px;
-    color: #475569;
-    padding: 7px 0;
-    border-bottom: 1px solid #e2e8f0;
-    display: flex; 
-    align-items: center; 
-    gap: 8px; }
+  font-size: 14px;
+  color: slategray;
+  padding: 7px 0;
+  border-bottom: 1px solid lightgray;
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+}
 
 .apply-sidebar .info-box ul li:last-child {
-    border-bottom: none; 
+  border-bottom: none; 
 }
 
 .deadline-box { 
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: #ffffff;
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
+  background: linear-gradient(135deg, midnightblue, royalblue);
+  color: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
 }
 
 .deadline-box h4 { 
-    font-size: 14px;
-    font-weight: 600;
-    opacity: .8; 
-    margin-bottom: 8px; 
-    text-transform: uppercase; 
-    letter-spacing: .06em;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: .8; 
+  margin-bottom: 8px; 
+  text-transform: uppercase; 
+  letter-spacing: .06em;
 }
 
 .deadline-box .deadline-date {
-    font-family: 'Sora', sans-serif; 
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin-bottom: 6px; 
+  font-family: 'Sora', sans-serif; 
+  font-size: 20.8px;
+  font-weight: 800;
+  margin-bottom: 6px; 
 }
 
 .deadline-box .days-left { 
-    font-size: 13px; 
-    color: #f59e0b;
-    font-weight: 600; 
+  font-size: 13px; 
+  color: orange;
+  font-weight: 600; 
 }
 
 @media (max-width: 960px) {
-    .apply-layout { 
-        grid-template-columns: 1fr; 
-    }
+  .apply-layout { 
+    grid-template-columns: 1fr; 
+  }
 }
 
 @media (max-width: 640px) {
-    .form-row { 
-        grid-template-columns: 1fr; 
-    }
+  .form-row { 
+    grid-template-columns: 1fr; 
+  }
 }
