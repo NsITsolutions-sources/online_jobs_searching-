@@ -1,4 +1,4 @@
-﻿.filter-bar { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 0; position: sticky; top: 68px; z-index: 100; }
+.filter-bar { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 0; position: sticky; top: 68px; z-index: 100; }
 .filter-inner { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .filter-btn { padding: 7px 18px; border-radius: 99px; border: 1.5px solid #e2e8f0; background: #ffffff; font-family: 'Inter', sans-serif; font-size: 14.08px; font-weight: 500; color: #475569; cursor: pointer; transition: all .2s; }
 .filter-btn:hover, .filter-btn.active { background: #2563eb; border-color: #2563eb; color: #ffffff; }

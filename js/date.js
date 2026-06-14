@@ -195,6 +195,33 @@
         updateJobCount();
     }
 
+    function setupApplicationDeadline() {
+        const deadlineDate = getElement('deadlineDate');
+        const daysLeft = getElement('daysLeft');
+
+        if (!deadlineDate && !daysLeft) {
+            return;
+        }
+
+        const deadline = new Date();
+        deadline.setDate(deadline.getDate() + 30);
+
+        const now = new Date();
+        const remainingDays = Math.ceil((deadline.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+
+        if (deadlineDate) {
+            deadlineDate.textContent = deadline.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            });
+        }
+
+        if (daysLeft) {
+            daysLeft.textContent = remainingDays + ' days left';
+        }
+    }
+
     function setupResourcesAccordion() {
         const accordion = getElement('faqAccordion');
 
@@ -219,6 +246,7 @@
         setupNavigation();
         setupJobsPage();
         setupResourcesAccordion();
+        setupApplicationDeadline();
     }
 
     window.handleHeroSearch = handleHeroSearch;
