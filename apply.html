@@ -10,9 +10,7 @@
 </head>
 <body>
 
-    <!-- =============================================
-         NAVIGATION BAR
-         ============================================= -->
+    <!-- Navigation bar -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">Uni<span>Jobs</span></a>
@@ -29,9 +27,7 @@
         </div>
     </nav>
 
-    <!-- =============================================
-         PAGE HERO
-         ============================================= -->
+    <!-- Page hero -->
     <div class="page-hero">
         <div class="container">
             <h1>Submit Your Application</h1>
@@ -39,13 +35,10 @@
         </div>
     </div>
 
-    <!-- =============================================
-         APPLY LAYOUT: FORM + SIDEBAR
-         ============================================= -->
     <div class="container">
         <div class="apply-layout">
 
-            <!-- APPLICATION FORM -->
+            <!-- Application form -->
             <div class="form-card">
                 <h2>Job Application Form</h2>
                 <p class="form-subtitle">
@@ -53,13 +46,8 @@
                     Your information is kept private and only shared with the employer you apply to.
                 </p>
 
-                <!--
-                    NOTE: We prevent default submission with JavaScript.
-                    onsubmit returns false to stop page reload.
-                -->
                 <form id="applyForm" onsubmit="return false;">
 
-                    <!-- Row 1: First & Last Name -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name <span class="required">*</span></label>
@@ -75,7 +63,6 @@
                         </div>
                     </div>
 
-                    <!-- Email -->
                     <div class="form-group">
                         <label for="email">Email Address <span class="required">*</span></label>
                         <input type="email" id="email" name="email"
@@ -83,7 +70,6 @@
                         <span class="error-msg" id="err-email">Please enter a valid email address.</span>
                     </div>
 
-                    <!-- Phone -->
                     <div class="form-group">
                         <label for="phone">Phone Number <span class="required">*</span></label>
                         <input type="tel" id="phone" name="phone"
@@ -91,7 +77,6 @@
                         <span class="error-msg" id="err-phone">Please enter a valid Sri Lankan phone number (10 digits).</span>
                     </div>
 
-                    <!-- Row 2: University & Degree -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="university">University / Institute <span class="required">*</span></label>
@@ -107,7 +92,6 @@
                         </div>
                     </div>
 
-                    <!-- Row 3: Year & GPA -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="studyYear">Current Year of Study <span class="required">*</span></label>
@@ -128,7 +112,6 @@
                         </div>
                     </div>
 
-                    <!-- Job Role Applying For -->
                     <div class="form-group">
                         <label for="jobRole">Position Applying For <span class="required">*</span></label>
                         <select id="jobRole" name="jobRole">
@@ -147,7 +130,6 @@
                         <span class="error-msg" id="err-jobRole">Please select the position you are applying for.</span>
                     </div>
 
-                    <!-- Skills -->
                     <div class="form-group">
                         <label for="skills">Key Skills <span class="required">*</span></label>
                         <input type="text" id="skills" name="skills"
@@ -155,7 +137,6 @@
                         <span class="error-msg" id="err-skills">Please list at least one skill.</span>
                     </div>
 
-                    <!-- Cover Note -->
                     <div class="form-group">
                         <label for="coverNote">Cover Note <span class="required">*</span></label>
                         <textarea id="coverNote" name="coverNote" rows="5"
@@ -163,10 +144,9 @@
                         <span class="error-msg" id="err-coverNote">Please write a short cover note (at least 30 characters).</span>
                     </div>
 
-                    <!-- CV / Resume Upload -->
                     <div class="form-group">
                         <label>Upload CV / Resume <span class="required">*</span></label>
-                        <!-- Custom styled file upload area -->
+ 
                         <div class="file-upload-zone" id="fileZone" onclick="document.getElementById('cvFile').click()">
                             <div class="upload-icon">📄</div>
                             <p>Click to upload your CV <br />
@@ -179,7 +159,6 @@
                         <span class="error-msg" id="err-cvFile">Please upload your CV (PDF or DOCX).</span>
                     </div>
 
-                    <!-- Terms Checkbox -->
                     <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;">
                         <input type="checkbox" id="agreeTerms" name="agreeTerms"
                                style="margin-top:3px;accent-color:#2563eb;width:16px;height:16px;flex-shrink:0;" />
@@ -193,7 +172,6 @@
                         </div>
                     </div>
 
-                    <!-- Submit Button -->
                     <button type="button" class="btn btn-primary"
                             id="submitBtn"
                             onclick="validateAndSubmit()"
@@ -201,7 +179,6 @@
                         Submit Application →
                     </button>
 
-                    <!-- Success Message (shown after valid submission) -->
                     <div class="form-success" id="formSuccess">
                         <h4>🎉 Application Submitted!</h4>
                         <p>
@@ -213,19 +190,16 @@
 
                 </form>
             </div>
-            <!-- END FORM CARD -->
 
-            <!-- SIDEBAR -->
+            <!-- Sidebar -->
             <aside class="apply-sidebar">
 
-                <!-- Application Deadline Box (JS Date powered) -->
                 <div class="deadline-box" id="deadlineBox">
                     <h4>Application Deadline</h4>
                     <div class="deadline-date" id="deadlineDate">Loading...</div>
                     <div class="days-left" id="daysLeft"></div>
                 </div>
 
-                <!-- Tips -->
                 <div class="info-box" style="margin-top:20px;">
                     <h4>📋 Before You Submit</h4>
                     <ul>
@@ -237,7 +211,6 @@
                     </ul>
                 </div>
 
-                <!-- What Happens Next -->
                 <div class="info-box">
                     <h4>⏭️ What Happens Next?</h4>
                     <ul>
@@ -248,7 +221,6 @@
                     </ul>
                 </div>
 
-                <!-- Help -->
                 <div class="info-box">
                     <h4>🆘 Need Help?</h4>
                     <ul>
@@ -259,14 +231,11 @@
                 </div>
 
             </aside>
-            <!-- END SIDEBAR -->
 
         </div>
     </div>
 
-    <!-- =============================================
-         FOOTER
-         ============================================= -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
