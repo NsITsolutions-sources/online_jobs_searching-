@@ -1,6 +1,6 @@
 .hero {
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #3b82f6 100%);
-  color: #ffffff;
+  background-color: royalblue;
+  color: white;
   padding: 100px 0 80px;
   position: relative;
   overflow: hidden;
@@ -31,7 +31,7 @@
 }
 
 .hero-text h1 .highlight {
-  color: #f59e0b;
+  color: orange;
 }
 
 .hero-text p {
@@ -58,7 +58,7 @@
   font-family: 'Sora', sans-serif;
   font-size: 28.8px;
   font-weight: 800;
-  color: #ffffff;
+  color: white;
 }
 
 .hero-stats .stat span {
@@ -80,7 +80,7 @@
 }
 
 .search-bar {
-  background: #ffffff;
+  background: white;
   border-radius: 12px;
   padding: 10px;
   display: flex;
@@ -95,13 +95,13 @@
   outline: none;
   font-family: 'Inter', sans-serif;
   font-size: 15.2px;
-  color: #0f172a;
+  color: darkslategray;
   padding: 0 12px;
   background: transparent;
 }
 
 .search-bar input::placeholder {
-  color: #94a3b8;
+  color: lightsteelblue;
 }
 
 .search-bar button {
@@ -115,8 +115,8 @@
 }
 
 .cat-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: white;
+  border: 1px solid lightgray;
   border-radius: 12px;
   padding: 28px 20px;
   text-align: center;
@@ -127,13 +127,13 @@
 .cat-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 16px rgba(0,0,0,.10);
-  border-color: #2563eb;
+  border-color: royalblue;
 }
 
 .cat-card .cat-icon {
   width: 56px;
   height: 56px;
-  background: #f1f5f9;
+  background: whitesmoke;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -145,17 +145,17 @@
 .cat-card h3 {
   font-size: 16px;
   font-weight: 700;
-  color: #0f172a;
+  color: darkslategray;
   margin-bottom: 4px;
 }
 
 .cat-card p {
   font-size: 13.12px;
-  color: #475569;
+  color: slategray;
 }
 
 .updates-section {
-  background: #f1f5f9;
+  background: whitesmoke;
 }
 
 .updates-grid {
@@ -165,10 +165,10 @@
 }
 
 .update-card {
-  background: #ffffff;
+  background: white;
   border-radius: 12px;
   padding: 24px;
-  border-left: 4px solid #2563eb;
+  border-left: 4px solid royalblue;
   box-shadow: 0 1px 3px rgba(0,0,0,.08);
 }
 
@@ -180,13 +180,13 @@
 
 .update-card p {
   font-size: 13.92px;
-  color: #475569;
+  color: slategray;
   line-height: 1.6;
 }
 
 .update-card .update-date {
   font-size: 12.48px;
-  color: #475569;
+  color: slategray;
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -207,8 +207,8 @@
 .how-step .step-num {
   width: 52px;
   height: 52px;
-  background: #2563eb;
-  color: #ffffff;
+  background: royalblue;
+  color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -227,7 +227,7 @@
 
 .how-step p {
   font-size: 13.92px;
-  color: #475569;
+  color: slategray;
 }
 
 @media (max-width: 960px) {
